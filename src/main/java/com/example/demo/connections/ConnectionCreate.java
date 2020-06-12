@@ -1,10 +1,15 @@
-package com.example.demo.entity;
+package com.example.demo.connections;
 
 import java.sql.*;
 
+/**
+ * 自定义数据库连接
+ * @author wl
+ * @date 2020-06-11 15:59:52
+ */
 public class ConnectionCreate {
 //    静态代码块初始化一次 数据库驱动连接
-    {
+    static{
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -23,8 +28,7 @@ public class ConnectionCreate {
         return connection;
     }
 //    创建关闭数据库连接的封装接口
-    public static void closeConnection(ResultSet resultSet, Statement statement,Connection connection){
-        try {
+    public static void closeConnection(ResultSet resultSet, Statement statement,Connection connection) throws SQLException{
             if (null != resultSet){
                 resultSet.close();
             }
@@ -34,8 +38,5 @@ public class ConnectionCreate {
             if (null != connection){
                 connection.close();
             }
-        } catch (SQLException e){
-            e.printStackTrace();
-        }
     }
 }
