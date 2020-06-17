@@ -9,10 +9,11 @@ import java.util.Date;
  * @return null
  */
 public class User {
-    private int id;
-    private Date birthday;
-    private String name;
-    private float money;
+
+    private int id;//id
+    private Date birthday;//date
+    private String name;//name
+    private float money;//money
     public int getId() {
         return id;
     }
